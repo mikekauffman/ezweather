@@ -1,0 +1,26 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <title>How Does It Feel?</title>
+</head>
+<body style="background: url('http://www.australia.com/contentimages/about-key-facts-weather.jpg')">
+  {{#if response}}
+    <div style="position: absolute; top: 50%; right: 20%; text-align: center;">
+      <h1 style="color:white;;">
+        it feels like it is {{response.feelslike_string}} in {{response.display_location.city}} right now
+      </h1>
+    </div>
+  {{else}}
+    <div style="position: absolute; top: 40%; right: 40%; text-align: center;">
+      <h1 style="color:white;">EZ Weather</h1>
+      <form class="form-inline" action="/forecast" method="post">
+        <div class="input-group">
+          <label class="input-group-addon">Zip Code:</label>
+          <input  class="form-control" name="zip" type="text" placeholder="80304">
+        </div>
+        <input class="btn btn-primary form-control" type="submit">
+      </form>
+    </div>
+  {{/if}}
+</body>
+</html>
